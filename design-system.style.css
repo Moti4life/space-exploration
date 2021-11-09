@@ -1,0 +1,379 @@
+/* fonts
+
+font-family: 'Barlow', sans-serif;
+
+font-family: 'Barlow Condensed', sans-serif;
+
+font-family: 'Bellefair', serif;
+
+*/
+
+
+
+/* custom properties */
+
+:root {
+    --clr-dark: 230 35% 7%;
+    --clr-light: 231 77% 90%;
+    --clr-white: 0 0% 100%;
+
+    --fs-900: 9.375rem;
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+
+    --ff-serif: "Bellefair", serif;
+    --ff-sans-cond: "Barlow Condensed", sans-serif;
+    --ff-sans-normal: "Barlow", sans-serif;
+}
+
+
+*, 
+*::before, 
+*::after{
+    box-sizing: border-box;
+}
+
+body,
+h1, h2, h3, h4, p,
+figure, picture {
+    margin: 0;
+}
+
+h1, h2, h3, h4, p{
+    font-weight: 500;
+}
+
+body{
+    line-height: 1.5;
+    min-height: 100vh;
+
+    font-family: var(--ff-sans-normal);
+    font-size: var(--fs-400);
+    
+    color: hsl(var(--clr-white));
+    background-color: hsl(var(--clr-dark));
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+
+
+input,
+button,
+select,
+textarea {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+     scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+
+/* utility classes */
+
+.flex{
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid{
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+.container{
+    width: 95%;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+
+/* .flow > * + * {
+    margin-top: 1rem;
+    outline: 1px solid red;
+} */
+
+.flow > *:where(:not(:first-child)){
+    margin-top: var(--flow-space, 1rem);
+    outline: red solid 1px;
+}
+
+
+/* for screen readers */
+
+.sr-only {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+white-space: nowrap; /* added line */
+border: 0;
+}
+
+
+
+/* =========================== */
+
+
+
+
+.bg-dark {
+    background-color: hsl(var(--clr-dark));
+}
+
+.bg-light {
+    background-color: hsl(var(--clr-light));
+}
+
+.bg-white {
+    background-color: hsl(var(--clr-white));
+}
+
+.font-white{
+    color: hsl(var(--clr-white))
+}
+
+.font-dark {
+    color: hsl(var(--clr-dark));
+}
+
+.font-light {
+    color: hsl(var(--clr-light));
+}
+
+
+/* typography */
+
+.ff-serif { font-family: var(--ff-serif); } 
+.ff-sans-cond { font-family: var(--ff-sans-cond); } 
+.ff-sans-normal { font-family: var(--ff-sans-normal); } 
+
+.uppercase { text-transform: uppercase; }
+
+.letter-spacing-1 { letter-spacing: 4.75px; } 
+.letter-spacing-2 { letter-spacing: 2.7px; } 
+.letter-spacing-3 { letter-spacing: 2.35px; }
+
+.fs-900 { font-size: var(--fs-900); }
+.fs-800 { font-size: var(--fs-800); }
+.fs-700 { font-size: var(--fs-700); }
+.fs-600 { font-size: var(--fs-600); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-300 { font-size: var(--fs-300); }
+.fs-200 { font-size: var(--fs-200); }
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+    line-height: 1.1;
+}
+
+/* ======================== */
+
+
+.card{
+    flex: 1 1 30%;
+}
+
+
+.numbered-title{
+    text-transform: uppercase;
+    font-family: var(--ff-sans-cond);
+    font-size: var(--fs-500);
+    letter-spacing: .2rem;
+}
+
+.number{
+    color: grey;
+    margin-right: .5em;
+    font-weight: 700;
+    
+}
+
+
+/* components */
+
+.large-button{
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    place-items: center;
+    /* padding: 0 2em; */
+    border-radius: 50%;
+    /* aspect-ratio: 1; //firefox 89 or use width height*/
+    width: 300px;
+    height: 300px;
+    
+}
+
+.large-button::after{
+    content: "";
+    position:absolute;
+    z-index: -1;
+
+
+    width: 100%;
+    height: 100%;
+    background-color: hsl(var(--clr-white) / .15);
+
+    border-radius: 50%;
+
+    opacity: 0;
+    transition: transform ease-out .24s, opacity .5s linear;
+}
+
+.large-button:hover::after,
+.large-button:focus::after{
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+.primary-navigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    --gap: 6rem;
+    --underline-gap: 1.5em;
+}
+
+.primary-navigation a {
+    text-decoration: none;
+}   
+
+.tab-navigation{
+    --gap: 2rem;
+    --underline-gap: 1em;
+}
+
+
+/* remember to add tabindex="1" to element for focus */
+
+
+.underline-indicator{
+    background-color: transparent;
+    border-style: none;
+    border: 0;
+    cursor: pointer;
+
+    padding: var(--underline-gap, 1em) 0;
+    border-bottom: 3px solid hsl(var(--clr-light) / 0);
+
+    transition: border-bottom ease-out .44s; 
+}
+
+
+.underline-indicator:hover,
+.underline-indicator:focus{
+    border-color: hsl(var(--clr-white) / 1);
+    outline: dotted white 1px;
+    outline-offset: -2px;
+}
+
+/* ============================ */
+
+.dot-navigation{
+    --gap: 2rem;
+
+    /* justify-content: space-between; */
+}
+
+.dot-navigation > *{
+    background-color: hsl(var(--clr-white) / .5);
+    border: none;
+    cursor: pointer;
+
+    width: .7rem;
+    height: .7rem;
+    border-radius: 50%;
+    
+    transition: background-color ease-out .24s; 
+    /* aspect-ratio: 1; */
+
+}
+
+.dot-navigation > *:hover,
+.dot-navigation > *:focus {
+    background-color: hsl(var(--clr-white) / .75);
+}
+
+.dot-navigation > [aria-selected="true"] {
+    background-color: hsl(var(--clr-white) / 1);
+}
+
+/* ============== */
+
+.num-navigation{
+    --gap: 3rem;
+}
+
+.num-navigation > *{
+    background-color: hsl(var(--clr-white) / .0);
+    border: none;
+    cursor: pointer;
+    color: hsl(var(--clr-white) / .5);
+
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid hsl(var(--clr-white) / .3);
+    border-radius: 50%;
+    
+    transition: all ease-out .24s; 
+    /* aspect-ratio: 1; */
+}
+
+.num-navigation > *:hover,
+.num-navigation > *:focus{
+    border-color: hsl(var(--clr-white) / .8);
+    color: hsl(var(--clr-white) / .8);
+}   
+
+.num-navigation > [aria-selected="true"] {
+    background-color: hsl(var(--clr-white) / 1);
+    border-color: hsl(var(--clr-white) / 1);
+    color: hsl(var(--clr-dark));
+}
+
+
+
+/* list active later on css*/
+.active, [aria-selected="true"]{
+    border-color: hsl(var(--clr-white) / .8);
+}
+
+/* ========================= */
+

@@ -1,0 +1,99 @@
+
+
+
+
+
+<div class="container">
+      <h1 class="font-light">Design system</h1>
+
+      <div class="bg-light div-clr">
+        <p class="font-dark">light blue bg, with dark text</p>
+      </div>
+
+      <div class="bg-white div-clr">
+        <p class="font-dark">white bg, with dark text</p>
+      </div>
+
+      <div class="bg-light div-clr" style="background-color: hsl(var(--clr-light) / .2);">
+        <p class="font-white">light blue bg with a 20% alpha and white text</p>
+      </div>
+
+</div>
+
+
+.box {
+    background-color: lightcyan;
+    padding: 3rem;
+
+}
+
+.div-clr{
+    padding: 3rem;
+}
+
+
+
+
+/* .underline-indicators > *{
+    padding: 1.5em 0;
+    border-bottom: 3px solid hsl(var(--clr-light) / 0);
+
+    transition: border-bottom ease-out .44s;
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus{
+    border-color: hsl(var(--clr-white) / .5);
+    outline: dotted white 1px;
+    outline-offset: -2px;
+    
+}
+
+.underline-indicators > .active{
+    border-color: hsl(var(--clr-white) / .8);
+}  */
+
+/* indicator a */
+
+/* .underline-indicators a{
+    padding: 1em 0;
+    border-bottom: 3px solid hsl(var(--clr-light) / 0);
+
+    transition: border-bottom ease-out .44s;
+    
+}
+
+.underline-indicators a:hover,
+.underline-indicators a:focus{
+    border-color: hsl(var(--clr-white) / 1);
+        
+} */
+
+/* indicator button */
+
+
+/* .underline-indicators button{
+    background-color: transparent;
+    border-style: none;
+
+    padding: 1em 0;
+    border-bottom: 3px solid hsl(var(--clr-light) / 0);
+
+    transition: border-bottom ease-out .44s;    
+}
+
+.underline-indicators button:hover,
+.underline-indicators button:focus{
+    border-color: hsl(var(--clr-white) / 1);
+    outline: dotted white 1px;
+    outline-offset: -2px;
+    
+}
+
+.underline-indicators .active{
+    border-color: hsl(var(--clr-white) / .8);
+} */
+
+
+
+<!-- <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false"><Menu></Menu></span></button> -->
