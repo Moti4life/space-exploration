@@ -312,7 +312,7 @@ border: 0;
 }
 
 
-/* remember to add tabindex="1" to element for focus */
+/* remember to add tabindex="1" to html element for focus */
 
 
 .underline-indicator{
@@ -439,7 +439,21 @@ border: 0;
 .burger{
     visibility: collapse;
     cursor: pointer;
-    margin: 0 2rem;
+    padding: 2rem;
+    margin: 0 1rem;
+    background-color: transparent;
+    background-image: url('assets/shared/icon-hamburger.svg');
+
+    background-position: center;
+    
+    background-repeat: no-repeat;
+
+    border: none;
+}
+
+.burger:focus-visible{
+    outline: 4px solid white;
+    outline-offset: -2px;
 }
 
 
@@ -550,8 +564,13 @@ border: 0;
         visibility: visible;
     }
 
+    .burger[aria-expanded="true"] {
+        background-image: url('./assets/shared/icon-close.svg');
+    }
+
     .navbar{
         background-color: hsl(var(--clr-dark) / .9);
+        
         
         position: absolute;
         top: 6rem;
@@ -560,8 +579,20 @@ border: 0;
         transform: translateX(100%);
 
         transition: transform ease-out .24s;
+
+        visibility: collapse;
+
+        /* transition: visibility .1s; */
+        
     }
 
+    .navbar[nav-slide-visible="true"] {
+        transform: translateX(0);
+
+        visibility: visible;
+    }
+
+    
     .primary-navigation{
         flex-direction: column;
         --gap: 5rem;
@@ -572,6 +603,8 @@ border: 0;
 
     .primary-navigation .underline-indicator {
         border: 0;
+
+        
     }
 
     .grid-container{
@@ -588,6 +621,8 @@ border: 0;
     }
 }
 
-.navbar__active{
+/* .navbar__active{
     transform: translateX(0);
-}
+
+    visibility: visible;
+} */
