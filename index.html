@@ -15,9 +15,9 @@
 
     
 </head>
-<body class="body">
+<body class="body-home">
 
-    
+    <a class="skip-main" href="#main">Skip to Main</a>
 
     <div class="top-nav flex">
         <div class="logo">
@@ -28,19 +28,16 @@
             <img src="assets/shared/icon-hamburger.svg" alt="" srcset="">
         </div> -->
 
+        <button class="burger" aria-expanded="false"><span class="sr-only" ><Menu></Menu></span></button>
         
-            <button class="burger" aria-expanded="false"><span class="sr-only" ><Menu></Menu></span></button>
-        
-        
-
         <div class="navbar" nav-slide-visible="false">
             
             <nav>
                 <ul class="primary-navigation flex">
-                    <li><a href="#" class=" font-white uppercase letter-spacing-2 underline-indicator"><span class="number">00</span>Home</a></li>
-                    <li><a href="#" class=" font-white uppercase letter-spacing-2 underline-indicator"><span class="number">01</span>Destination</a></li>
-                    <li><a href="#" class=" font-white uppercase letter-spacing-2 underline-indicator"><span class="number">02</span>Crew</a></li>
-                    <li><a href="#" class=" font-white uppercase letter-spacing-2 underline-indicator"><span class="number">03</span>Technology</a></li>
+                    <li><a href="#" class="active font-white uppercase letter-spacing-2 underline-indicator"><span aria-hidden="true" class="number">00</span>Home</a></li>
+                    <li><a href="#" class=" font-white uppercase letter-spacing-2 underline-indicator"><span aria-hidden="true" class="number">01</span>Destination</a></li>
+                    <li><a href="#" class=" font-white uppercase letter-spacing-2 underline-indicator"><span aria-hidden="true" class="number">02</span>Crew</a></li>
+                    <li><a href="#" class=" font-white uppercase letter-spacing-2 underline-indicator"><span aria-hidden="true" class="number">03</span>Technology</a></li>
                 </ul>
             </nav>
             
@@ -48,7 +45,8 @@
 
     </div>
     
-    <div class="grid-container container">
+    <main id="main" class="container">
+        <div class="grid-container-home">
     
             <div class="title-div">
                 <h2 class="ff-serif fs-400 letter-spacing-2 uppercase">So, you want to travel to</h2>
@@ -61,7 +59,8 @@
                 <a href="#" class="large-button uppercase ff-serif font-dark fs-600 bg-white">Explore</a>
             </div>
 
-    </div>
+        </div>
+    </main>
 
 
     <script src="index.js"></script>

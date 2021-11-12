@@ -66,7 +66,7 @@ body{
     /* background-repeat: no-repeat; */
     background-size: cover;
 
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 img,
@@ -121,18 +121,11 @@ textarea {
 .container{
     width: 90%;
     max-width: 80rem;
-    margin: 0 auto;
-}
+    margin: 0 auto clamp(4rem, 20vh, 8rem);
 
-.grid-container{
+
+    /* display grid will help items stretch out */
     display: grid;
-    /* grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
-
-    column-gap: var(--container-gap, 2rem); */
-
-    text-align: center;
-
-    place-items: center;
 }
 
 /* .flow > * + * {
@@ -220,6 +213,12 @@ border: 0;
     line-height: 1.1;
 }
 
+.fw-100 { font-weight: 100}
+.fw-300 { font-weight: 300}
+.fw-500 { font-weight: 500}
+.fw-700 { font-weight: 700}
+.fw-900 { font-weight: 900}
+
 .max-ch{
     max-width: 50ch;
     
@@ -249,6 +248,42 @@ border: 0;
 
 
 /* components */
+
+.skip-main{
+
+    padding: 2rem;
+    width: 30%;
+    height: 20%;
+
+
+    color: hsl(var(--clr-dark));
+    background-color: hsl(var(--clr-light) / 1);
+    
+    text-align: center;
+
+    position: absolute;
+
+    z-index: 100;
+
+    right: 0;
+    left: 0;
+    top: 0;
+
+    margin: 0 auto;
+
+    transform: translateY(-101%);
+    
+
+    transition: transform ease-out .24s;
+}
+
+.skip-main:focus{
+    color: hsl(var(--clr-dark) / .9);
+    background-color: hsl(var(--clr-white) / 1);
+
+    transform: translateY(0);
+}
+
 
 .large-button{
     text-decoration: none;
@@ -309,6 +344,8 @@ border: 0;
 .tab-navigation{
     --gap: 2rem;
     --underline-gap: 1em;
+
+    justify-content: center;
 }
 
 
@@ -418,29 +455,26 @@ border: 0;
 }
 
 .logo{
-    margin: 0 2rem;
+    flex: 1 0 5%;
+    margin: 0 0 0 clamp(1.5rem, 4vw, 3rem);
 }
 
 .navbar{
     
     background-color: hsl(var(--clr-light) / .2);
     
-    padding: 1em;
+    padding: 1em 2em; 
     
     z-index: 2;
 }
 
-/* .navbar-bg{
-    filter: blur(10px);
-} */
-
-
 
 .burger{
     visibility: collapse;
+    display: none;
     cursor: pointer;
     padding: 2rem;
-    margin: 0 1rem;
+    margin: 0 clamp(1.5rem, 4vw, 3rem);
     background-color: transparent;
     background-image: url('assets/shared/icon-hamburger.svg');
 
@@ -457,25 +491,75 @@ border: 0;
 }
 
 
-.home{
-    height: 70vh;
+.grid-container-home{
+    display: grid;
+    /* grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
 
-    justify-content: space-between;
-    align-items: flex-end;
+    column-gap: var(--container-gap, 2rem); */
+
+    text-align: center;
+
+    place-items: center;
+
+    padding: clamp(2rem, 5vh, 4rem) 0;
+
 }
 
-/* .title-div{
-    place-self: center;
-}
 
-.explore-div{
-    place-self: center;
+/* =============================== destination */
+
+
+/* .grid-container-destination{
+    
+    display: grid;
+
+    //grid-template-rows: 1fr 2fr;
+    grid-template-rows: auto 1fr;
+
+    justify-items: center;
+
+    text-align: center;
+
+    --gap:2.5rem;
+
+    margin: 2rem 0 4rem 0
 } */
 
+.grid-container-destination{
+    display: grid;
+
+    grid-template-areas: 
+        'title'
+        'image'
+        'tab-nav'
+        'content';
+
+    justify-items: center;
+
+    text-align: center;
+
+    gap:2.5rem;
+}
+
+.grid-container-destination > img{
+    grid-area: image;
+    max-width: 66%;
+}
+
+.grid-container-destination > .tab-navigation{
+    grid-area: tab-nav;
+}
+
+.grid-container-destination > .destination-content{
+    grid-area: content;
+}
+
+.flex-destination{
+    flex-direction: column;
+}
 
 
-
-/* =================== */
+/* ======================================================================================= */
 /* media queries */
 
 /* consider using em for the metrics for Safari compatibility */
@@ -483,27 +567,49 @@ border: 0;
 
 /* desktop */
 @media (min-width: 75em) {
-    body{
+    .body-home{
         background-image: url("assets/home/background-home-desktop.jpg");
     }
 
-    .grid-container{
+    .body-destination{
+        background-image: url('assets/destination/background-destination-desktop.jpg');
+    }
+
+    /* // decorative line */
+    .top-nav::after{
+        content: '';
+        display: block;
+        position: relative;
+        background-color: hsl(var(--clr-light) / .4);
+        height: 2px;
+        width: 100%;
+
+        order: 1;
+        z-index: 2;
+
+        /* overlap */
+        margin-right: -2.3rem;
+
+    }
+
+    .navbar{
+        order: 2;
+    }
+
+    .grid-container-home{
         grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
         column-gap: var(--container-gap, 2rem);
-
         /* justify-items: center; */
         align-items: end;
-
-        padding-bottom: max(8rem, 20vh);
 
         text-align: left;
     }
 
-    .grid-container > *:first-child{
+    .grid-container-home > *:first-child{
         grid-column: 2;
     }
 
-    .grid-container > *:last-child{
+    .grid-container-home > *:last-child{
         grid-column: 3;
     }
 
@@ -520,17 +626,13 @@ border: 0;
 
 /* tablet */
 @media (max-width: 75em) {
-    body{
+    .body-home{
         background-image: url("assets/home/background-home-tablet.jpg");
         background-position: 50% 60%;
     }
-    .home{
-        height: 88vh;
-        
-        flex-direction: column;
 
-        justify-content: space-evenly;
-        align-items: center;
+    .body-destination{
+        background-image: url('assets/destination/background-destination-tablet.jpg');
     }
 
     .max-ch{
@@ -538,22 +640,35 @@ border: 0;
     }
 
     .primary-navigation{
-        --gap: 1.5rem;
+        --gap: 2.5rem;
+
+        
     }
 
     .top-nav{
         padding: 0;
     }
 
+    .number{
+        display: none;
+    }
     
+    .grid-container-home{
+        row-gap: 4rem;
+
+    }
 
 }
 
 /* phone */
-@media (max-width: 55em) {
-    body{
+@media (max-width: 47em) {
+    .body-home{
         background-image: url("assets/home/background-home-mobile.jpg");
         background-position: 50% 100%;
+    }
+
+    .body-destination{
+        background-image: url('assets/destination/background-destination-tablet.jpg');
     }
 
     .top-nav{
@@ -562,6 +677,7 @@ border: 0;
 
     .burger{
         visibility: visible;
+        display: block;
     }
 
     .burger[aria-expanded="true"] {
@@ -607,11 +723,6 @@ border: 0;
         
     }
 
-    .grid-container{
-        margin-bottom: 4rem;
-    }
-
-    
 }
 
 @supports (backdrop-filter: blur(1rem)) {
