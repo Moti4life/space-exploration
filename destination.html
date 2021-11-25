@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;300;500;700;900&family=Barlow:wght@100;300;500;700;900&family=Bellefair&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="style.css">
+    <title>Destination selection</title>
+
+    
+</head>
+<body class="body-destination">
+
+    <a class="skip-main" href="#main">Skip to Main</a>
+
+    <div class="top-nav flex">
+        <div class="logo">
+            <img src="assets/shared/logo.svg" alt="space tourism logo" srcset="">
+        </div>
+
+        <!-- <div class="burger" tabindex="0">
+            <img src="assets/shared/icon-hamburger.svg" alt="" srcset="">
+        </div> -->
+
+        <button class="burger" aria-expanded="false"><span class="sr-only" ><Menu></Menu></span></button>
+        
+        <div class="navbar" nav-slide-visible="false">
+            
+            <nav>
+                <ul class="primary-navigation flex">
+                    <li><a href="index.html" class="font-white uppercase letter-spacing-2 underline-indicator"><span aria-hidden="true" class="number">00</span>Home</a></li>
+                    <li><a href="destination.html" class="active font-white uppercase letter-spacing-2 underline-indicator"><span aria-hidden="true" class="number">01</span>Destination</a></li>
+                    <li><a href="crew.html" class="font-white uppercase letter-spacing-2 underline-indicator"><span aria-hidden="true" class="number">02</span>Crew</a></li>
+                    <li><a href="technology.html" class=" font-white uppercase letter-spacing-2 underline-indicator"><span aria-hidden="true" class="number">03</span>Technology</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+
+    </div>
+    
+    <main id="main" class="container">
+        <div class="grid-container grid-container-destination">
+    
+            <h1 class="option-title font-white uppercase letter-spacing-1 fs-500"><span aria-hidden="true" class="number number--content">01</span>Pick your destination</h1>
+            
+            <!-- images -->
+            <picture id="moon-image">
+                <source srcset="assets/destination/image-moon.webp" type="image/webp" >
+                <img src="assets/destination/image-moon.png" alt="the moon">
+            </picture>
+
+            <picture id="mars-image" hidden>
+                <source srcset="assets/destination/image-mars.webp" type="image/webp">
+                <img src="assets/destination/image-mars.png" alt="the planet mars">
+            </picture>
+
+            <picture id="europa-image" hidden>
+                <source srcset="assets/destination/image-europa.webp" type="image/webp">
+                <img src="assets/destination/image-europa.png" alt="the planet europa">
+            </picture>
+
+            <picture id="titan-image" hidden>
+                <source srcset="assets/destination/image-titan.webp" type="image/webp">
+                <img src="assets/destination/image-titan.png" alt="the moon titan">
+            </picture>
+            
+            
+            <!-- Tabs -->
+            <div class="tab-navigation flex" role="tablist">
+                <button role="tab" data-tab-image="moon-image" aria-selected="true" aria-controls="moon-tab" class="font-white ff-sans-cond letter-spacing-2 uppercase underline-indicator" >Moon</button>
+                <button role="tab" data-tab-image="mars-image" aria-selected="false" aria-controls="mars-tab" class="font-white ff-sans-cond letter-spacing-2 uppercase underline-indicator">Mars</button>
+                <button role="tab" data-tab-image="europa-image" aria-selected="false" aria-controls="europa-tab" class="font-white ff-sans-cond letter-spacing-2 uppercase underline-indicator">Europa</button>
+                <button role="tab" data-tab-image="titan-image" aria-selected="false" aria-controls="titan-tab" class="font-white ff-sans-cond letter-spacing-2 uppercase underline-indicator">Titan</button>
+            </div>
+            
+
+            <!-- moon tab -->
+            <div class="content" id="moon-tab" role="tabpanel">
+
+                <h1 class="font-white uppercase fs-800 ff-serif">Moon</h1>
+                <p class="ff-sans-cond letter-spacing-3 fw-300 max-ch">
+                    See our planet as you’ve never seen it before. A perfect relaxing trip away to help
+                    regain perspective and come back refreshed. While you’re there, take in some history
+                    by visiting the Luna 2 and Apollo 11 landing sites.
+                </p>
+
+                <div class="flex flex-destination">
+                    <div>
+                        <h3 class="font-light ff-sans-cond letter-spacing-2 fs-500 fw-300">Avg. distance</h3>
+                        <span class="font-white ff-serif letter-spacing-2 fs-600">384,400 KM</span>
+                    </div>
+                    <div>
+                        <h3 class="font-light ff-sans-cond letter-spacing-2 fs-500 fw-300">Est. travel time</h3>
+                        <span class="font-white ff-serif letter-spacing-2 fs-600 uppercase"> 3 Days</span>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+            <!-- mars tab -->
+            <div class="content" id="mars-tab" role="tabpanel" hidden>
+
+                <h1 class="font-white uppercase fs-800 ff-serif">mars</h1>
+                <p class="ff-sans-cond letter-spacing-3 fw-300 max-ch">
+                    Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, 
+                    the tallest planetary mountain in our solar system. It’s two and a half times 
+                    the size of Everest!
+                </p>
+
+                <div class="flex flex-destination">
+                    <div>
+                        <h3 class="font-light ff-sans-cond letter-spacing-2 fs-500 fw-300">Avg. distance</h3>
+                        <span class="font-white ff-serif letter-spacing-2 fs-600">225 mil. km</span>
+                    </div>
+                    <div>
+                        <h3 class="font-light ff-sans-cond letter-spacing-2 fs-500 fw-300">Est. travel time</h3>
+                        <span class="font-white ff-serif letter-spacing-2 fs-600 uppercase">9 months</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- europa tab -->
+
+            <div class="content" id="europa-tab" role="tabpanel" hidden>
+
+                <h1 class="font-white uppercase fs-800 ff-serif">europa</h1>
+                <p class="ff-sans-cond letter-spacing-3 fw-300 max-ch">
+                    The smallest of the four Galilean moons orbiting Jupiter, Europa is a 
+                    winter lover’s dream. With an icy surface, it’s perfect for a bit of 
+                    ice skating, curling, hockey, or simple relaxation in your snug 
+                    wintery cabin.
+                </p>
+
+                <div class="flex flex-destination">
+                    <div>
+                        <h3 class="font-light ff-sans-cond letter-spacing-2 fs-500 fw-300">Avg. distance</h3>
+                        <span class="font-white ff-serif letter-spacing-2 fs-600">628 mil. km</span>
+                    </div>
+                    <div>
+                        <h3 class="font-light ff-sans-cond letter-spacing-2 fs-500 fw-300">Est. travel time</h3>
+                        <span class="font-white ff-serif letter-spacing-2 fs-600 uppercase">3 years</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- titan tab -->
+
+            <div class="content" id="titan-tab" role="tabpanel" hidden>
+
+                <h1 class="font-white uppercase fs-800 ff-serif">titan</h1>
+                <p class="ff-sans-cond letter-spacing-3 fw-300 max-ch">
+                    The only moon known to have a dense atmosphere other than Earth, Titan 
+                    is a home away from home (just a few hundred degrees colder!). As a 
+                    bonus, you get striking views of the Rings of Saturn.
+                </p>
+
+                <div class="flex flex-destination">
+                    <div>
+                        <h3 class="font-light ff-sans-cond letter-spacing-2 fs-500 fw-300">Avg. distance</h3>
+                        <span class="font-white ff-serif letter-spacing-2 fs-600">1.6 bil. km</span>
+                    </div>
+                    <div>
+                        <h3 class="font-light ff-sans-cond letter-spacing-2 fs-500 fw-300">Est. travel time</h3>
+                        <span class="font-white ff-serif letter-spacing-2 fs-600 uppercase">7 years</span>
+                    </div>
+                </div>
+
+            </div>
+            
+
+        </div>
+    </main>
+
+
+    <script src="index.js"></script>
+    <script src="tabs.js"></script>
+</body>
+</html>

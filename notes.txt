@@ -97,3 +97,65 @@
 
 
 <!-- <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false"><Menu></Menu></span></button> -->
+
+
+================tabs.js
+
+// enclose with brackets for attribute selector
+const tabList = document.querySelector('[data-tab-nav="tab-nav"]');
+const tabOptions = document.querySelectorAll('[data-tab="tab-option"]');
+
+const tabDestinations = document.querySelectorAll('[data-tab-destination="tab-destination"]');
+const tabImages = document.querySelectorAll('[data-destination-image="tab-image"]')
+
+
+const handleClick = (event) => {
+    // console.log(event.target);
+
+    const targetTab = event.target;
+    const targetName = targetTab.getAttribute("aria-controls");
+    const targetImage = targetTab.getAttribute('data-tab-image')
+
+    // console.log(targetImage);
+
+    //========== tabOption selected
+    
+    tabList.querySelector('[aria-selected="true"]').setAttribute('aria-selected', false)
+    targetTab.setAttribute('aria-selected', true)
+    
+    //========== tabDestination show content
+
+    tabDestinations.forEach( (tabDestination) => {
+        
+        // console.log(tabDestination.id);
+        tabDestination.setAttribute('hidden', true)
+        
+        if(targetName === tabDestination.id){
+            tabDestination.removeAttribute('hidden')
+        }
+
+    })
+
+    //========== tab images
+
+    tabImages.forEach( (tabImage) => {
+        const destinationImage = tabImage.getAttribute('data-image')
+        // console.log(tabImage.getAttribute('data-image'));
+
+        tabImage.setAttribute('hidden', true)
+
+        if(targetImage === destinationImage){
+            
+            tabImage.removeAttribute('hidden')
+        }
+       
+    })
+
+    
+}
+
+tabOptions.forEach( (tabOption) => {
+    tabOption.addEventListener('click', handleClick);
+})
+
+
