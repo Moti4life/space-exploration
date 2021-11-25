@@ -51,26 +51,26 @@
             <h1 class="option-title font-white uppercase letter-spacing-1 fs-500"><span aria-hidden="true" class="number number--content">01</span>Pick your destination</h1>
             
             <!-- images -->
-            <picture id="moon-image">
-                <source srcset="assets/destination/image-moon.webp" type="image/webp" >
-                <img src="assets/destination/image-moon.png" alt="the moon">
-            </picture>
-
-            <picture id="mars-image" hidden>
+            
+            <picture id="mars-image" class="fadeOut">
                 <source srcset="assets/destination/image-mars.webp" type="image/webp">
                 <img src="assets/destination/image-mars.png" alt="the planet mars">
             </picture>
-
-            <picture id="europa-image" hidden>
+            
+            <picture id="europa-image" class="fadeOut">
                 <source srcset="assets/destination/image-europa.webp" type="image/webp">
                 <img src="assets/destination/image-europa.png" alt="the planet europa">
             </picture>
-
-            <picture id="titan-image" hidden>
+            
+            <picture id="titan-image" class="fadeOut">
                 <source srcset="assets/destination/image-titan.webp" type="image/webp">
                 <img src="assets/destination/image-titan.png" alt="the moon titan">
             </picture>
             
+            <picture id="moon-image">
+                <source srcset="assets/destination/image-moon.webp" type="image/webp" >
+                <img src="assets/destination/image-moon.png" alt="the moon">
+            </picture>
             
             <!-- Tabs -->
             <div class="tab-navigation flex" role="tablist">
@@ -81,32 +81,11 @@
             </div>
             
 
-            <!-- moon tab -->
-            <div class="content" id="moon-tab" role="tabpanel">
-
-                <h1 class="font-white uppercase fs-800 ff-serif">Moon</h1>
-                <p class="ff-sans-cond letter-spacing-3 fw-300 max-ch">
-                    See our planet as you’ve never seen it before. A perfect relaxing trip away to help
-                    regain perspective and come back refreshed. While you’re there, take in some history
-                    by visiting the Luna 2 and Apollo 11 landing sites.
-                </p>
-
-                <div class="flex flex-destination">
-                    <div>
-                        <h3 class="font-light ff-sans-cond letter-spacing-2 fs-500 fw-300">Avg. distance</h3>
-                        <span class="font-white ff-serif letter-spacing-2 fs-600">384,400 KM</span>
-                    </div>
-                    <div>
-                        <h3 class="font-light ff-sans-cond letter-spacing-2 fs-500 fw-300">Est. travel time</h3>
-                        <span class="font-white ff-serif letter-spacing-2 fs-600 uppercase"> 3 Days</span>
-                    </div>
-                </div>
-
-            </div>
+            
             
             
             <!-- mars tab -->
-            <div class="content" id="mars-tab" role="tabpanel" hidden>
+            <article class="content flow fadeOut" id="mars-tab" role="tabpanel">
 
                 <h1 class="font-white uppercase fs-800 ff-serif">mars</h1>
                 <p class="ff-sans-cond letter-spacing-3 fw-300 max-ch">
@@ -126,11 +105,11 @@
                     </div>
                 </div>
 
-            </div>
+            </article>
 
             <!-- europa tab -->
 
-            <div class="content" id="europa-tab" role="tabpanel" hidden>
+            <article class="content flow fadeOut" id="europa-tab" role="tabpanel">
 
                 <h1 class="font-white uppercase fs-800 ff-serif">europa</h1>
                 <p class="ff-sans-cond letter-spacing-3 fw-300 max-ch">
@@ -151,11 +130,11 @@
                     </div>
                 </div>
 
-            </div>
+            </article>
 
             <!-- titan tab -->
 
-            <div class="content" id="titan-tab" role="tabpanel" hidden>
+            <article class="content flow fadeOut" id="titan-tab" role="tabpanel" >
 
                 <h1 class="font-white uppercase fs-800 ff-serif">titan</h1>
                 <p class="ff-sans-cond letter-spacing-3 fw-300 max-ch">
@@ -175,7 +154,31 @@
                     </div>
                 </div>
 
-            </div>
+            </article>
+
+
+            <!-- moon tab -->
+            <article class="content flow" id="moon-tab" role="tabpanel">
+
+                <h1 class="font-white uppercase fs-800 ff-serif">Moon</h1>
+                <p class="ff-sans-cond letter-spacing-3 fw-300 max-ch">
+                    See our planet as you’ve never seen it before. A perfect relaxing trip away to help
+                    regain perspective and come back refreshed. While you’re there, take in some history
+                    by visiting the Luna 2 and Apollo 11 landing sites.
+                </p>
+
+                <div class="flex flex-destination">
+                    <div>
+                        <h3 class="font-light ff-sans-cond letter-spacing-2 fs-500 fw-300">Avg. distance</h3>
+                        <span class="font-white ff-serif letter-spacing-2 fs-600">384,400 KM</span>
+                    </div>
+                    <div>
+                        <h3 class="font-light ff-sans-cond letter-spacing-2 fs-500 fw-300">Est. travel time</h3>
+                        <span class="font-white ff-serif letter-spacing-2 fs-600 uppercase"> 3 Days</span>
+                    </div>
+                </div>
+
+            </article>
             
 
         </div>

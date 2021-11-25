@@ -78,6 +78,7 @@ picture {
     max-width: 100%;
     /* display: block; */
 
+    
 }
 
 a:not([class]) {
@@ -516,7 +517,11 @@ border: 0;
         'image'
         'option-nav'
         'content';
+
+    
 }
+
+/* //========== make sure these grid-area names are correct. new rows or columns will be created if not */
 
 .grid-container > .option-title{
     grid-area: title;
@@ -533,7 +538,7 @@ border: 0;
     grid-area: option-nav;
 }
 
-.grid-container > content{
+.grid-container > .content{
     grid-area: content;
 }
 
@@ -699,6 +704,8 @@ border: 0;
         justify-content: start;
         gap: 5rem;
     }
+
+    
 
     /* //=============== crew  */
 
@@ -948,6 +955,27 @@ border: 0;
         backdrop-filter: blur(50px);
     }
 }
+
+/* //============= hide */
+
+picture, .content{
+    transition: all .3s ease-out;
+    transition-delay: .2s;
+}
+
+.fadeOut {
+    visibility: collapse;
+    opacity: 0;
+}
+
+.fadeIn {
+    visibility: visible;
+    opacity: 1;
+    
+    
+}
+
+
 
 /* .navbar__active{
     transform: translateX(0);

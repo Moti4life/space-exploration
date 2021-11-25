@@ -17,30 +17,43 @@ const handleClick = (event) => {
     const gridContainer = tabContainer.parentNode;
     // console.log(gridContainer);
 
-    //========== tabOption selected
+    try {
+        //========== tabOption selected
     
-    tabList.querySelector('[aria-selected="true"]').setAttribute('aria-selected', false)
-    targetTab.setAttribute('aria-selected', true)
-    
-    //========== show / hide content
+        tabList.querySelector('[aria-selected="true"]').setAttribute('aria-selected', false)
+        targetTab.setAttribute('aria-selected', true)
+        
+        //========== show / hide content
 
-    const hideContent = (container, content) => {
-        container.querySelectorAll(content).forEach( (element) => {
-            element.setAttribute('hidden', true)
-        })
+        const hideContent = (container, content) => {
+            // container.querySelectorAll(content).forEach( (element) => {
+            //     element.setAttribute('hidden', true)
+            // })
+
+            container.querySelectorAll(content).forEach( (element) => {
+                element.classList.remove('fadeIn')
+                element.classList.add('fadeOut')
+                
+            })
+        }
+
+        // console.log(targetContent, targetImage);
+
+        const showContent = (container, content) => {
+            // container.querySelector(`#${content}`).removeAttribute('hidden')
+
+            container.querySelector(`#${content}`).classList.remove('fadeOut')
+            container.querySelector(`#${content}`).classList.add('fadeIn') 
+        }
+
+        hideContent(gridContainer, '[role="tabpanel"]')
+        hideContent(gridContainer, 'picture')
+
+        showContent(gridContainer, targetContent)
+        showContent(gridContainer, targetImage)
+    } catch (error) {
+        console.log('hey yall!', error);
     }
-
-    // console.log(targetContent, targetImage);
-
-    const showContent = (container, content) => {
-        container.querySelector(`#${content}`).removeAttribute('hidden')
-    }
-
-    hideContent(gridContainer, '[role="tabpanel"]')
-    hideContent(gridContainer, 'picture')
-
-    showContent(gridContainer, targetContent)
-    showContent(gridContainer, targetImage)
 }
 
 tabOptions.forEach( (tabOption) => {
